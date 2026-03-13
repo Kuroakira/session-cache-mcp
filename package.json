@@ -7,13 +7,19 @@
   "bin": {
     "session-cache-mcp": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "hooks",
+    "rules"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node scripts/add-shebang.js",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": ["mcp", "claude-code", "session-cache"],
+  "keywords": ["mcp", "claude-code", "session-cache", "model-context-protocol"],
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1"
