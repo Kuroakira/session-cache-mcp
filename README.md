@@ -24,33 +24,19 @@ The cache lives in-memory and dies with the session -- no persistence, no databa
 
 ### With npx (recommended)
 
-Add to your project's `.mcp.json`:
+```bash
+# Project-level
+claude mcp add session-cache -- npx -y session-cache-mcp
 
-```json
-{
-  "mcpServers": {
-    "session-cache": {
-      "command": "npx",
-      "args": ["-y", "session-cache-mcp"]
-    }
-  }
-}
+# User-level (shared across projects)
+claude mcp add session-cache -s user -- npx -y session-cache-mcp
 ```
 
 ### Global install
 
 ```bash
 npm install -g session-cache-mcp
-```
-
-```json
-{
-  "mcpServers": {
-    "session-cache": {
-      "command": "session-cache-mcp"
-    }
-  }
-}
+claude mcp add session-cache -s user -- session-cache-mcp
 ```
 
 ## Setup
