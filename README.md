@@ -41,9 +41,15 @@ claude mcp add session-cache -s user -- session-cache-mcp
 
 ## Setup
 
-### 1. Add behavioral rules to CLAUDE.md
+### As a Claude Code plugin (recommended)
 
-Copy the contents of [`rules/session-cache.md`](rules/session-cache.md) into your project's `CLAUDE.md`:
+When installed as a plugin, the usage protocol (skill) and SubagentStart hook are automatically available — no manual CLAUDE.md or settings.json configuration needed.
+
+Other plugins (e.g., claude-praxis) can invoke the `session-cache:session-cache-protocol` skill to inject the cache protocol into their workflows.
+
+### As an npm MCP server (manual setup)
+
+If using via `npx` or global install without the plugin system, add the following to your project's `CLAUDE.md`:
 
 ```markdown
 Before reading any file, call `check_cache` from the session-cache server with the file path.
@@ -56,30 +62,6 @@ and a concise summary (2-4 sentences covering the file's purpose, key exports, a
 At the start of a complex task, call `get_session_map` to see what files have already been
 read in this session.
 ```
-
-### 2. (Optional) Add SubagentStart hook
-
-Add to your `.claude/settings.json` or project-level hook config:
-
-```json
-{
-  "hooks": {
-    "SubagentStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node node_modules/session-cache-mcp/hooks/subagent-start.js"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-This injects a brief reminder into every spawned subagent, reinforcing the CLAUDE.md rules.
 
 ## Tool API
 

@@ -1,0 +1,17 @@
+{
+  "name": "session-cache",
+  "owner": {
+    "name": "Kuroakira"
+  },
+  "metadata": {
+    "description": "Eliminate redundant file reads across Claude Code subagents"
+  },
+  "plugins": [
+    {
+      "name": "session-cache",
+      "description": "Session-scoped MCP server that eliminates redundant file reads across Claude Code subagents",
+      "version": "0.1.2",
+      "source": "./"
+    }
+  ]
+}

@@ -10,7 +10,7 @@
   "files": [
     "dist",
     "hooks",
-    "rules"
+    "skills"
   ],
   "scripts": {
     "build": "tsc && node scripts/add-shebang.js",
