@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { realpathSync } from "node:fs";
 import path from "node:path";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -58,9 +59,11 @@ export function createServer(): McpServer {
   return server;
 }
 
-// Start server when run directly
-const currentFile = fileURLToPath(import.meta.url);
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === currentFile;
+// Start server when run directly (realpathSync resolves npx symlinks)
+const currentFile = realpathSync(fileURLToPath(import.meta.url));
+const isDirectRun =
+  process.argv[1] != null &&
+  realpathSync(path.resolve(process.argv[1])) === currentFile;
 if (isDirectRun) {
   const server = createServer();
   const transport = new StdioServerTransport();
