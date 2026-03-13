@@ -1,9 +1,8 @@
 {
   "mcpServers": {
     "session-cache": {
-      "command": "node",
-      "args": ["dist/index.js"],
-      "cwd": "."
+      "command": "npx",
+      "args": ["session-cache-mcp"]
     }
   }
 }

@@ -43,7 +43,12 @@ claude mcp add session-cache -s user -- session-cache-mcp
 
 ### As a Claude Code plugin (recommended)
 
-When installed as a plugin, the usage protocol (skill) and SubagentStart hook are automatically available — no manual CLAUDE.md or settings.json configuration needed.
+1. Open Claude Code
+2. Open **Manage Plugins** (`/plugins` or via the menu)
+3. In the **Marketplaces** tab, enter the GitHub URL: `https://github.com/Kuroakira/session-cache-mcp`
+4. Switch to the **Plugins** tab and install it
+
+When installed as a plugin, the MCP server, usage protocol (skill), and SubagentStart hook are all automatically available — no manual CLAUDE.md or settings.json configuration needed.
 
 Other plugins (e.g., claude-praxis) can invoke the `session-cache:session-cache-protocol` skill to inject the cache protocol into their workflows.
 
