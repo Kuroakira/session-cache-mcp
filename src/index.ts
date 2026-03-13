@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 import { realpathSync } from "node:fs";
 import path from "node:path";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -11,12 +12,15 @@ import {
   handleGetSessionMap,
 } from "./tools.js";
 
+const require = createRequire(import.meta.url);
+const { version } = require("../package.json") as { version: string };
+
 export function createServer(): McpServer {
   const store = new CacheStore();
 
   const server = new McpServer({
     name: "session-cache",
-    version: "0.1.0",
+    version,
   });
 
   server.tool(
