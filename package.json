@@ -1,0 +1,29 @@
+{
+  "name": "session-cache-mcp",
+  "version": "0.1.0",
+  "description": "Session-scoped MCP server that eliminates redundant file reads across Claude Code subagents",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "session-cache-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["mcp", "claude-code", "session-cache"],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

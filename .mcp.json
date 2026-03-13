@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "session-cache": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "."
+    }
+  }
+}
